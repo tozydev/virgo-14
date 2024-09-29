@@ -1,8 +1,10 @@
-import './Header.css';
+import '../style/Header.css';
 export function Header() {
     return (
         <header className="header">
-            <div className="logo">UTH Salon</div>
+            <div className="logo">
+                <a href="/">UTH Salon</a>
+            </div>
             <nav>
             <ul>
                 <li><a href="#home">Home</a></li>

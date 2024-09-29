@@ -1,3 +1,4 @@
+import '../style/Services.css';
 import React, { useState } from 'react';
 export function Services({ servicesList }) {
     const [searchTerm, setSearchTerm] = useState('');
@@ -36,6 +37,5 @@ export function Services({ servicesList }) {
         </section>
     );
 }
-
 
 export default Services;

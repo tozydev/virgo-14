@@ -1,4 +1,4 @@
-import './Hero.css';
+import '../style/Hero.css';
 export function Hero () {
     return (
         <section className="hero">

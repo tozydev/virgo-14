@@ -7,7 +7,7 @@ import FeedBack from './components/Feedback';
 import Newsletter from './components/Newsletter';
 import Footer from './components/Footer';
 import Services from './components/Services';  
-import './App.css';
+// import './App.css';
 
 function App() {
 

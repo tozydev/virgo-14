@@ -1,4 +1,4 @@
-import './Pricing.css';
+import '../style/Pricing.css';
 export function Pricing (){
     const pricingPlans = [
         { name: 'UTH Basic', price: '$30', features: ['đang suy nghĩ', 'đang suy nghĩ', 'đang suy nghĩ'] },

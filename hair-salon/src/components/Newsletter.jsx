@@ -1,4 +1,4 @@
-import './Newsletter.css';
+import '../style/Newsletter.css';
 export function Newsletter () {
     return (
         <section className="newsletter">

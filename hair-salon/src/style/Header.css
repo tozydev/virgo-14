@@ -12,6 +12,16 @@
     color: #333;
 }
 
+a{
+    text-decoration: none;
+}
+a:visited{
+    color: #333;
+}
+a:hover {
+    color: #6c2bd9; 
+}
+
 nav ul {
     display: flex;
     list-style-type: none;

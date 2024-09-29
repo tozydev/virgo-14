@@ -1,4 +1,4 @@
-import './FeedBack.css';
+import '../style/FeedBack.css';
 export function FeedBack() {
     return (
         <section className="FeedBack">
