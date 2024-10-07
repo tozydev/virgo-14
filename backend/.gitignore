@@ -1,0 +1,12 @@
+### .NET Core
+bin/
+obj/
+
+### Rider
+.idea/
+out/
+*.iml
+*.iws
+*.ipr
+/packages/
+/_ReSharper.Caches/
