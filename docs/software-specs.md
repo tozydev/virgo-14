@@ -1,6 +1,34 @@
-﻿# Tài liệu đặc tả phần mềm
+﻿---
+title: Tài liệu đặc tả phần mềm — virgo-14
+subtitle: Hair Salon Booking
+author: Nguyễn Thanh Tân
+contributors:
+  - Lê Hoàng Chiến
+  - Nguyễn Huỳnh Sang
+  - Võ Hồ Hoàng Hà
+  - Đoàn Thị Yến
+  - Đặng Huỳnh Trà My
+  - Trần Đặng Mỹ Duyên
+subject: Software Specifications
+lang: vi
+fontsize: 12pt
+titlepage: true
+titlepage-rule-color: "360049"
+titlepage-background: "backgrounds/title-page.pdf"
+toc: true
+toc-own-page: true
+toc-depth: 3
+numbersections: true
+footer-left: "\\hspace{1cm}"
+---
 
-Hair Salon Booking
+\renewcommand{\listfigurename}{Danh mục hình ảnh}
+\listoffigures
+\addcontentsline{toc}{section}{\listfigurename}
+
+\newpage
+
+# Tài liệu đặc tả phần mềm
 
 <table>
     <tr>
