@@ -1,0 +1,43 @@
+name: Build documents
+on:
+  push:
+    paths:
+      - docs/**
+      - .github/workflows/build-docs.yml
+      - .github/actions/pandoc/**
+
+    branches:
+      - main
+
+  pull_request:
+    paths:
+      - docs/**
+      - .github/workflows/build-docs.yml
+      - .github/actions/pandoc/**
+
+jobs:
+  build-software-specs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Build PDF
+        uses: ./.github/actions/pandoc
+        with:
+          entrypoint: /opt/entrypoint.sh
+          args: -d software-specs.yml
+
+      - name: Upload PDF
+        uses: actions/upload-artifact@v4
+        with:
+          name: software-specs
+          path: docs/software-specs.pdf
+
+      - name: Commit software-specs
+        if: github.event_name == 'push'
+        uses: EndBug/add-and-commit@v9
+        with:
+          add: docs/
+          default_author: github_actions
+          messages: 'docs(auto): update software-specs.pdf'
