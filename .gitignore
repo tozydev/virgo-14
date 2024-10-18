@@ -1,0 +1,6 @@
+### IntelliJ-based IDE
+.idea/
+out/
+*.iml
+*.iws
+*.ipr
