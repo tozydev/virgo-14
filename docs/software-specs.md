@@ -32,11 +32,11 @@ footer-left: "\\hspace{1cm}"
 \section*{Thông tin tài liệu}
 \addcontentsline{toc}{section}{Thông tin tài liệu}
 
-- Tên dự án: Hair Salon
-- Mã dự án: virgo-14
-- Phiên bản: 1.0 draft 1
-- Người soạn: Nguyễn Thanh Tân
-- Người đóng góp:
+- **Tên dự án:** Hair Salon
+- **Mã dự án:** virgo-14
+- **Phiên bản:** 1.0 draft 1
+- **Người soạn:** Nguyễn Thanh Tân
+- **Người đóng góp:**
     - Lê Hoàng Chiến
     - Nguyễn Huỳnh Sang
     - Võ Hồ Hoàng Hà
@@ -65,6 +65,11 @@ khách hàng đã đặt.
 Ngoài ra, website còn tích hợp thanh toán bằng mã QR, tạo và lưu hóa đơn cho khách đến sử dụng dịch
 vụ không thông qua website. Từ đó, nâng cao trải nghiệm sử dụng dịch vụ của khách hàng và quản lý có thể giám sát, theo
 dõi, thông kê các hoạt động của tiệm.
+
+### Thuật ngữ
+
+| Thuật ngữ | Viết tắt | Giải thích |
+|-----------|----------|------------|
 
 ## Yêu cầu chức năng
 
@@ -394,7 +399,7 @@ start
 if (Có tài khoản?) then (yes)
 else (no)
    :Đăng ký tài khoản;
-  :Xác thực SĐT;
+   :Xác thực OTP;
 endif
 :Đăng nhập;
 if (Quên mật khẩu?) then (yes)
@@ -525,5 +530,9 @@ stop
 
 @enduml
 ```
+
+## Yêu cầu tương tác ngoài
+
+## Yêu cầu phi chức năng
 
 ## Phụ lục
