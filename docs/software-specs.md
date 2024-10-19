@@ -18,6 +18,7 @@ titlepage-background: "backgrounds/title-page.pdf"
 toc: true
 toc-own-page: true
 toc-depth: 3
+caption-justification: centering
 numbersections: true
 footer-left: "\\hspace{1cm}"
 ---
@@ -28,37 +29,24 @@ footer-left: "\\hspace{1cm}"
 
 \newpage
 
-# Tài liệu đặc tả phần mềm
+\section*{Thông tin tài liệu}
+\addcontentsline{toc}{section}{Thông tin tài liệu}
 
-<table>
-    <tr>
-        <th>Tên dự án</th>
-        <td>Hair Salon Booking</td>
-    </tr>
-    <tr>
-        <th>Mã dự án</th>
-        <td>virgo-14</td>
-    </tr>
-    <tr>
-        <th>Phiên bản</th>
-        <td>1.0 (draft)</td>
-    </tr>
-    <tr>
-        <th>Người soạn</th>
-        <td>Nguyễn Thanh Tân</td>
-    </tr>
-    <tr>
-        <th>Người đóng góp</th>
-        <td>
-            Lê Hoàng Chiến<br/>
-            Nguyễn Huỳnh Sang<br/>
-            Võ Hồ Hoàng Hà<br/>
-            Đoàn Thị Yến<br/>
-            Đặng Huỳnh Trà My<br/>
-            Trần Đặng Mỹ Duyên
-        </td>
-    </tr>
-</table>
+- Tên dự án: Hair Salon
+- Mã dự án: virgo-14
+- Phiên bản: 1.0 draft 1
+- Người soạn: Nguyễn Thanh Tân
+- Người đóng góp:
+    - Lê Hoàng Chiến
+    - Nguyễn Huỳnh Sang
+    - Võ Hồ Hoàng Hà
+    - Đoàn Thị Yến
+    - Đặng Huỳnh Trà My
+    - Trần Đặng Mỹ Duyên
+
+\newpage
+
+# Tài liệu đặc tả phần mềm
 
 ## Giới thiệu
 
@@ -87,7 +75,7 @@ dõi, thông kê các hoạt động của tiệm.
 Các tác nhân tương tác với hệ thống gồm: Guest, Customer, Staff, Manager và System Administrator. Các đối tượng đó được
 thể hiện trên sơ đồ sau:
 
-```plantuml
+```{.plantuml caption="Biểu đồ mô hình hóa các tác nhân"}
 @startuml
 
 skinparam usecase {
@@ -142,7 +130,7 @@ AD -d- System: administer
 
 ### Biểu đồ use case tổng quan
 
-```plantuml
+```{.plantuml caption="Biểu đồ use case tổng quan"}
 @startuml
 skinparam usecase {
   BackgroundColor BUSINESS
@@ -228,7 +216,7 @@ AD -- SS : administer
 
 #### Phân rã use case “Customer”
 
-```plantuml
+```{.plantuml caption="Biểu đồ use case phân rã của **Customer**"}
 @startuml
 
 skinparam usecase {
@@ -283,7 +271,7 @@ UC6 <.. UC12 : <<include>>
 
 #### Phân rã use case “Staff”
 
-```plantuml
+```{.plantuml caption="Biểu đồ use case phân rã của **Staff**"}
 @startuml
 
 skinparam usecase {
@@ -338,7 +326,7 @@ S -- UC6
 
 #### Phân rã use case “Manager”
 
-```plantuml
+```{.plantuml caption="Biểu đồ use case phân rã của **Manager**"}
 @startuml
 
 skinparam usecase {
@@ -392,7 +380,7 @@ cho phép mình thiết lập lại mật khẩu. Lúc này, Guest sẽ nhập O
 Sau khi đăng nhập thành công vào hệ thống, Customer có thể sử dụng các chức năng như Quản lý thông tin, Quản lý đặt lịch
 hẹn, và các chức năng trong phạm vi của mình mà hệ thống đã cấp phát.
 
-```plantuml
+```{.plantuml caption="Quy trình sử dụng phần mềm chung phía người dùng khách hàng"}
 @startuml
 <style>
 activity {
@@ -435,7 +423,7 @@ khẩu. Nếu đăng nhập lần đầu, hệ thống sẽ yêu cầu Staff t�
 
 Các tài khoản Staff phải được cung cấp bởi Manager, Staff không thể đăng ký tài khoản.
 
-```plantuml
+```{.plantuml caption="Quy trình sử dụng phần mềm chung phía người dùng nhân viên"}
 @startuml
 <style>
 activity {
@@ -476,7 +464,7 @@ stop
 
 #### Quy trình sử dụng phần mềm của “Customer”
 
-![quy-trinh-su-dung-phan-mem-cua-customer.png](attachments/quy-trinh-su-dung-phan-mem-cua-customer.png)
+![Quy trình sử dụng phần mềm chung của **Customer**](attachments/quy-trinh-su-dung-phan-mem-cua-customer.svg)
 
 #### Quy trình quản lý lịch hẹn
 
@@ -484,23 +472,23 @@ Khách hàng chọn các chức năng: đặt lịch, xem lịch, hủy lịch v
 lưu thông tin lịch hẹn, hiển thị lịch hẹn chi tiết, cập nhật lịch hẹn đã hủy, kiểm tra lịch hẹn trùng lịch. Khi xác nhận
 thành công sẽ gửi thông báo về cho khách hàng.
 
-![quy-trinh-quan-ly-lich-hen.png](attachments/quy-trinh-quan-ly-lich-hen.png)
+![Quy trình quản lý lịch hẹn](attachments/quy-trinh-quan-ly-lich-hen.svg)
 
 #### Quy trình quản lý lịch hẹn khách hàng
 
-![quy-trinh-quan-ly-lich-hen-khach-hang.png](attachments/quy-trinh-quan-ly-lich-hen-khach-hang.png)
+![Quy trình quản lý lịch hẹn khách hàng](attachments/quy-trinh-quan-ly-lich-hen-khach-hang.svg)
 
 #### Quy trình quản lý dịch vụ
 
-![quy-trinh-quan-ly-dich-vu.png](attachments/quy-trinh-quan-ly-dich-vu.png)
+![Quy trình quản lý dịch vụ](attachments/quy-trinh-quan-ly-dich-vu.svg)
 
 #### Quy trình quản lý nhân viên
 
-![quy-trinh-quan-ly-nhan-vien.png](attachments/quy-trinh-quan-ly-nhan-vien.png)
+![Quy trình quản lý nhân viên](attachments/quy-trinh-quan-ly-nhan-vien.svg)
 
 #### Quy trình thanh toán
 
-```plantuml
+```{.plantuml caption="Quy trình thanh toán"}
 @startuml
 
 |Customer|
