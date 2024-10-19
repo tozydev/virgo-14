@@ -46,8 +46,6 @@ footer-left: "\\hspace{1cm}"
 
 \newpage
 
-# Tài liệu đặc tả phần mềm
-
 ## Giới thiệu
 
 ### Mục đích
