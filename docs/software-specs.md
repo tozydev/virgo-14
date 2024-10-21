@@ -125,15 +125,15 @@ AD -d- System: administer
 
 ### Các chức năng của hệ thống
 
-1. Đăng nhập: Mục đích để xác thực người dùng khi tương tác với hệ thống nhằm cung cấp quyền và phạm vi truy cập hệ
-   thống.
-2. Đăng ký: Để truy cập sử dụng hệ thống, người dùng cần phải đăng ký tài khoản.
-3. Quản lý lịch hẹn: Khách hàng có thể tạo lịch hẹn với nhân viên và chọn khung giờ thích hợp hoặc có thể thay đổi lịch
+1. Đăng nhập/Đăng ký: Mục đích để xác thực và phân quyền truy cập vào hệ thống.
+2. Quản lý lịch hẹn: Khách hàng có thể tạo lịch hẹn với nhân viên và chọn khung giờ thích hợp hoặc có thể thay đổi lịch
    hẹn hiện có. Nhân viên có thể chấp nhận hoặc từ chối lịch của khách hàng.
-4. Khách hàng thân thiết: Tích điểm thưởng qua sử dụng dịch vụ và sử dụng điểm thưởng để khấu trừ các hóa đơn thanh
+3. Khách hàng thân thiết: Tích điểm thưởng qua sử dụng dịch vụ và sử dụng điểm thưởng để khấu trừ các hóa đơn thanh
    toán.
-5. Quản lý dịch vụ: Quản lý có thể thêm, xóa, sửa các dịch vụ cho tiệm.
-6. Quản lý nhân viên: Quản lý có thể thêm, xóa, sửa nhân viên của tiệm.
+4. Quản lý dịch vụ: Quản lý có thể thêm, xóa, sửa các dịch vụ cho tiệm.
+5. Quản lý nhân viên: Quản lý có thể thêm, xóa, sửa nhân viên của tiệm.
+6. Quản lý hóa đơn: Nhân viên có thể tạo các hóa đơn sử dụng dịch vụ cho khách hàng, các hóa đơn sẽ được lưu trữ để
+   thống kê, báo cáo.
 7. Quản trị và giám sát hệ thống: Là công việc của Quản trị viên.
 
 ### Biểu đồ use case tổng quan
