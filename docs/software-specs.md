@@ -478,4 +478,40 @@ stop
 
 ## Yêu cầu phi chức năng
 
+## Kiến trúc hệ thống
+
+### Luồng dữ liêu của hệ thống
+
+```mermaid
+---
+config:
+    flowchart:
+        defaultRenderer: elk
+---
+%%| fig-cap: Biểu đồ luồng dữ liệu hệ thống cấp 1
+graph TD
+    A[Customer] --> |Đặt lịch| P1((Hệ Thống Lịch Hẹn))
+    A --> |Xem dịch vụ| P2((Hệ Thống Dịch Vụ))
+    A --> |Đánh giá dịch vụ| P3((Hệ Thống Đánh Giá))
+    C[Staff] --> |Quản lý lịch hẹn| P1
+    C --> |Tạo hóa đơn| P4((Hệ Thống Hóa Đơn))
+    D[Manager] --> |Quản lý dịch vụ| P2
+    D --> |Quản lý nhân viên| P5((Hệ Thống Nhân Viên))
+    D --> |Xem báo cáo| P6((Hệ Thống Báo Cáo))
+    P1 <--> |Dữ liệu lịch hẹn| DS1[(Appointment DB)]
+    P2 <--> |Dữ liệu dịch vụ| DS2[(Service DB)]
+    P3 <--> |Dữ liệu đánh giá| DS3[(Rating DB)]
+    P4 <--> |Dữ liệu hóa đơn| DS4[(Invoice DB)]
+    P5 <--> |Dữ liệu nhân viên| DS5[(Staff DB)]
+    P6 --> |Tạo báo cáo| D
+    P4 <--> |Tiến hành thanh toán| E[Cổng thanh toán]
+    P1 --> |Xác nhận lịch hẹn| A
+    P2 --> |Thông tin dịch vụ| A
+    P4 --> |Hóa đơn| A
+    P1 --> |Dời lịch hẹn| C
+    P2 --> |Chi tiết dịch vụ| C
+    P5 --> |Thông tin nhân viên| C
+    P6 <--> |Thông tin tài chính| DS4
+    P6 <--> |Thông tin hiệu năng| DS5
+```
 ## Phụ lục

@@ -17,3 +17,7 @@ metadata:
         mime-type:
           application/pdf: false
           image/svg+xml: true
+
+      mermaid:
+        mine-type:
+          image/svg+xml: true
