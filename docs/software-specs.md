@@ -68,8 +68,13 @@ dõi, thông kê các hoạt động của tiệm.
 
 ### Thuật ngữ
 
-| Thuật ngữ | Viết tắt | Giải thích |
-|-----------|----------|------------|
+| Thuật ngữ            | Viết tắt | Giải thích                                                     |
+|----------------------|----------|----------------------------------------------------------------|
+| Guest                |          | Những người sử dụng hệ thống chưa đăng ký/đăng nhập tài khoản. |
+| Customer             |          | Khách hàng sử dụng dịch vụ của tiệm.                           |
+| Staff                |          | Nhân viên phục của cửa tiệm.                                   |
+| Manager              |          | Nhân viên quản lý hoặc chủ cửa tiệm.                           |
+| System Administrator |          | Nhân viên giám sát, hỗ trợ kĩ thuật về hạ tầng hệ thống.       |        
 
 ## Yêu cầu chức năng
 
