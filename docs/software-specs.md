@@ -480,6 +480,34 @@ stop
 
 ## Kiến trúc hệ thống
 
+### Kiến trúc tổng thể
+
+```plantuml
+'| fig-cap: Biểu đồ thành phần hệ thống
+@startuml
+
+package Frontend as F {
+    [React App] as RA
+    interface "HTTP" as FHTTP
+    RA -r- FHTTP
+}
+
+package Backend as B {
+    [Controller] as C
+    [Business\nLogic] as BS
+    [Data Access] as DA
+    database "SQLServer" as DB
+    
+    FHTTP .r.> HTTP : call REST API
+    HTTP -r- C
+    C ..> BS
+    BS ..> DA
+    DA .r.> DB : access
+}
+
+@enduml
+```
+
 ### Luồng dữ liêu của hệ thống
 
 ```mermaid
