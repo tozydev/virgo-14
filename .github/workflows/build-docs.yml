@@ -18,15 +18,33 @@ on:
 jobs:
   build-software-specs:
     runs-on: ubuntu-latest
+    container:
+      image: pandoc/extra:latest
+
+    env:
+      MERMAID_BIN: /usr/local/bin/mmdc-alt
+      PUPPETEER_EXECUTABLE_PATH: /usr/bin/chromium-browser
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Install dependencies
+        run: |
+          apk update
+          apk add plantuml chromium font-noto-cjk font-noto-emoji \
+            terminus-font ttf-dejavu ttf-freefont ttf-font-awesome \
+            ttf-inconsolata ttf-linux-libertine npm
+          fc-cache -f
+          npm install -g @mermaid-js/mermaid-cli
+          printf '{"args":["--no-sandbox","--disable-setuid-sandbox", "--disable-gpu"]}' > \
+                  /etc/puppeteer-conf.json
+          printf '#!/bin/sh\nmmdc -p /etc/puppeteer-conf.json $@' > $MERMAID_BIN
+          chmod +x $MERMAID_BIN
+
       - name: Build PDF
-        uses: ./.github/actions/pandoc
-        with:
-          entrypoint: /opt/entrypoint.sh
-          args: -d software-specs.yml
+        working-directory: ./docs
+        run: pandoc -d software-specs.yml
 
       - name: Upload PDF
         uses: actions/upload-artifact@v4
