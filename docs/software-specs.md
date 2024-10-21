@@ -83,7 +83,8 @@ hoạt động của tiệm.
 Các tác nhân tương tác với hệ thống gồm: Guest, Customer, Staff, Manager và System Administrator. Các đối tượng đó được
 thể hiện trên sơ đồ sau:
 
-```{.plantuml caption="Biểu đồ mô hình hóa các tác nhân"}
+```plantuml
+'| fig-cap: Biểu đồ mô hình hóa các tác nhân
 @startuml
 
 skinparam usecase {
@@ -138,7 +139,8 @@ AD -d- System: administer
 
 ### Biểu đồ use case tổng quan
 
-```{.plantuml caption="Biểu đồ use case tổng quan"}
+```plantuml
+'| fig-cap: Biểu đồ use case tổng quan
 @startuml
 skinparam usecase {
   BackgroundColor BUSINESS
@@ -166,7 +168,6 @@ rectangle "System" as SS {
   rectangle "User" as F {
     usecase "Tìm kiếm dịch vụ" as UC1
     usecase "Xem dịch vụ" as UC2
-    usecase "Sử dụng trợ lý ảo" as UC3
     usecase "Đăng ký" as UC4
     usecase "Quản lý lịch hẹn" as UC6
     usecase "Đánh giá dịch vụ" as UC7
@@ -177,7 +178,6 @@ rectangle "System" as SS {
   rectangle "Admin" as B {
     usecase "Quản lý lịch hẹn khách hàng" as UC9
     usecase "Xem lịch sử làm việc" as UC10
-    usecase "Cập nhật trạng thái" as UC11
     usecase "Tạo hóa đơn thanh toán" as UC12
     usecase "Phản hồi đánh giá" as UC13
     usecase "Quản lý dịch vụ" as UC14
@@ -193,7 +193,6 @@ N2 .r. B
 
 G -d- UC1
 G -d- UC2
-G -d- UC3
 G -d- UC4
 G -d- UC5
 
@@ -205,7 +204,6 @@ C -d- UC20
 S -u- UC5
 S -u- UC9
 S -u- UC10
-S -u- UC11
 S -u- UC12
 S -u- UC13
 S -u- UC14 : xem
@@ -224,7 +222,8 @@ AD -- SS : administer
 
 #### Phân rã use case “Customer”
 
-```{.plantuml caption="Biểu đồ use case phân rã của **Customer**"}
+```plantuml
+'| fig-cap: Biểu đồ use case phân rã của **Customer**
 @startuml
 
 skinparam usecase {
@@ -279,7 +278,8 @@ UC6 <.. UC12 : <<include>>
 
 #### Phân rã use case “Staff”
 
-```{.plantuml caption="Biểu đồ use case phân rã của **Staff**"}
+```plantuml
+'| fig-cap: Biểu đồ use case phân rã của **Staff**
 @startuml
 
 skinparam usecase {
@@ -297,34 +297,29 @@ actor Staff as S
 rectangle System {
   usecase "Phản hồi đánh giá" as UC1
   usecase "Tạo hóa đơn\nthanh toán" as UC2
-  usecase "Cập nhật trạng thái" as UC3
   usecase "Xem lịch sử\nlàm việc" as UC4
   usecase "Quản lý lịch hẹn\nkhách hàng" as UC5
   usecase "Xem dịch vụ" as UC6
   usecase "Tạo mới hóa đơn\ndịch vụ" as UC7
   usecase "Tạo hóa đơn\ntheo lịch hẹn" as UC8
-  usecase "Có mặt" as UC9
-  usecase "Vắng mặt" as UC10
   usecase "Xem lịch hẹn" as UC11
   usecase "Chấp nhận\nlịch hẹn" as UC12
   usecase "Dời lịch hẹn" as UC13
   usecase "Hủy lịch hẹn" as UC14
+  usecase "Cập nhật có mặt/vắng\nmặt của khách hàng" as UC15
 }
 
 UC2 <|-- UC7
 UC2 <|-- UC8
 
-UC3 <.. UC9 : <<extends>>
-UC3 <.. UC10 : <<extends>>
-
 UC5 <.. UC11 : <<extends>>
 UC5 <.. UC12 : <<extends>>
 UC5 <.. UC13 : <<extends>>
 UC5 <.. UC14 : <<extends>>
+UC5 <.. UC15 : <<extends>>
 
 S -- UC1
 S -- UC2
-S -- UC3
 S -- UC4
 S -- UC5
 S -- UC6
@@ -334,7 +329,8 @@ S -- UC6
 
 #### Phân rã use case “Manager”
 
-```{.plantuml caption="Biểu đồ use case phân rã của **Manager**"}
+```plantuml
+'| fig-cap: Biểu đồ use case phân rã của **Manager**
 @startuml
 
 skinparam usecase {
@@ -350,7 +346,7 @@ left to right direction
 actor "Manager" as M
 
 rectangle "System" {
-  usecase "Quản lí dịch vụ" as UC1
+  usecase "Quản lý dịch vụ" as UC1
   note right of UC1: Xem, tạo, cập nhật, xóa
   usecase "Quản lí nhân viên" as UC2
   note right of UC2: Xem, tạo, cập nhật, xóa
