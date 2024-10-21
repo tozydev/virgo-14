@@ -62,9 +62,9 @@ Dự án **Hair Salon Booking** phục vụ việc đặt lịch hẹn trực tu
 nối các khách hàng với các nhân viên làm việc trong tiệm. Nhân viên có thể theo dõi, chấp nhận từ chối các lịch hẹn mà
 khách hàng đã đặt.
 
-Ngoài ra, website còn tích hợp thanh toán bằng mã QR, tạo và lưu hóa đơn cho khách đến sử dụng dịch
-vụ không thông qua website. Từ đó, nâng cao trải nghiệm sử dụng dịch vụ của khách hàng và quản lý có thể giám sát, theo
-dõi, thông kê các hoạt động của tiệm.
+Ngoài ra, website còn tích hợp thanh toán bằng mã QR, tạo và lưu hóa đơn cho khách đến sử dụng dịch vụ không thông qua
+website. Từ đó, nâng cao trải nghiệm sử dụng dịch vụ của khách hàng và quản lý có thể giám sát, theo dõi, thông kê các
+hoạt động của tiệm.
 
 ### Thuật ngữ
 
