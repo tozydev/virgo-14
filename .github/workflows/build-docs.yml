@@ -29,7 +29,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Install dependencies
+      - name: Setup dependencies
         run: |
           apk update
           apk add plantuml chromium font-noto-cjk font-noto-emoji \
@@ -41,6 +41,7 @@ jobs:
                   /etc/puppeteer-conf.json
           printf '#!/bin/sh\nmmdc -p /etc/puppeteer-conf.json $@' > $MERMAID_BIN
           chmod +x $MERMAID_BIN
+          cp -r ./.github/pandoc/* ./docs/
 
       - name: Build PDF
         working-directory: ./docs
