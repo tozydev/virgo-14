@@ -432,51 +432,45 @@ thành công sẽ gửi thông báo về cho khách hàng.
 
 ![Quy trình quản lý nhân viên](attachments/quy-trinh-quan-ly-nhan-vien.svg)
 
-#### Quy trình thanh toán
-
-```{.plantuml caption="Quy trình thanh toán"}
-@startuml
-
-|Customer|
-start
-:Đăng nhập;
-:Sử dụng dịch vụ;
-|Staff|
-:Tạo hóa đơn thanh toán;
-|System|
-:Lưu hóa đơn;
-:Thông báo hóa đơn;
-|Staff|
-:Hiện thị hóa đơn;
-|Customer|
-:Nhận hóa đơn;
-if (Tiền mặt?) then (yes)
-else (no)
-  :Thanh toán trực tuyến;
-  |Payment Gateway|
-  :Xác nhận thanh toán;
-  :Thông báo thanh toán thành công;
-  |System|
-  :Xác nhận thanh toán thành công;
-  :Thông báo thanh toán thành công;
-  |Staff|
-  :Hiển thị thanh toán thành công;
-  |Customer|
-  :Hiển thị thanh toán thành công;
-endif
-|System|
-:Ghi nhận điểm thưởng;
-:Thống báo ghi nhận điểm thưởng;
-|Customer|
-:Hiển thị điểm thưởng;
-stop
-
-@enduml
-```
-
-## Yêu cầu tương tác ngoài
-
 ## Yêu cầu phi chức năng
+
+1. **Tính khả dụng**
+
+    - Hệ thống cần đạt tỷ lệ hoạt động ít nhất 99,5% trong năm.
+    - Thời gian khôi phục hệ thống sau khi xảy ra sự cố không quá 2 giờ.
+
+2. **Tính bảo mật**
+
+    - Hệ thống cần đáp ứng các tiêu chuẩn an ninh thông tin phổ biến như OWASP.
+    - Các tài khoản người dùng phải được bảo vệ bằng mật khẩu mạnh và có cơ chế xác thực 2 yếu tố.
+    - Dữ liệu của khách hàng và giao dịch thanh toán phải được mã hóa và bảo vệ nghiêm ngặt.
+
+3. **Tính di động**
+
+    - Giao diện người dùng phải được thiết kế responsive, có thể truy cập tốt trên các thiết bị di động như điện thoại
+      và
+      máy tính bảng.
+    - Ứng dụng di động cho phép nhân viên quản lý lịch hẹn và thông tin khách hàng trên thiết bị di động.
+
+4. **Khả năng mở rộng**
+
+    - Hệ thống cần có khả năng mở rộng để phục vụ từ 5 đến 50 nhân viên và hàng trăm khách hàng.
+    - Cơ sở dữ liệu phải có thiết kế sẵn sàng cho việc mở rộng quy mô.
+
+5. **Hiệu suất**
+
+    - Thời gian phản hồi của hệ thống trong các tác vụ quan trọng như đặt lịch hẹn, thanh toán không quá 3 giây.
+    - Hệ thống phải có khả năng xử lý ít nhất 50 giao dịch đặt lịch hẹn đồng thời.
+
+6. **Khả năng tích hợp**
+
+    - Hệ thống cần tích hợp với cổng thanh toán trực tuyến phổ biến như VNPay, MoMo.
+    - Cần có giao diện API để có thể tích hợp với các hệ thống khác trong tương lai.
+
+7. **Độ tin cậy**
+
+    - Hệ thống phải có cơ chế sao lưu dữ liệu và khôi phục dữ liệu trong trường hợp sự cố, đảm bảo không mất dữ liệu.
+    - Hệ thống cần có chức năng theo dõi và cảnh báo các lỗi, sự cố phát sinh.
 
 ## Kiến trúc hệ thống
 
