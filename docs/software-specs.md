@@ -375,94 +375,36 @@ UC5 <.. UC8
 
 #### Quy trình sử dụng phần mềm chung
 
-#### Phía khách hàng
-
-Guest có thể đăng ký để tạo ra tài khoản cho mình. Sau đó có thể đăng nhập để sử dụng
-các chức năng của phần mềm. Nếu Guest quên mật khẩu, khách có thể yêu cầu hệ thống
-cho phép mình thiết lập lại mật khẩu. Lúc này, Guest sẽ nhập OTP được gửi qua SĐT đã đăng ký.
+Guest cần đăng nhập để sử dụng các chức năng của hệ thống. Nếu chưa có tài khoản Guest bắt buộc phải đăng ký. Nếu quên
+mật khẩu, hệ thống sẽ cho phép cấp lại mật khẩu thông qua email đã đăng ký.
 
 Sau khi đăng nhập thành công vào hệ thống, Customer có thể sử dụng các chức năng như Quản lý thông tin, Quản lý đặt lịch
 hẹn, và các chức năng trong phạm vi của mình mà hệ thống đã cấp phát.
 
-```{.plantuml caption="Quy trình sử dụng phần mềm chung phía người dùng khách hàng"}
-@startuml
-<style>
-activity {
-  BackgroundColor BUSINESS
-}
-swimlaneTittle {
-  BackgroundColor BUSINESS
-}
-</style>
+Đối với Staff, các tài khoản phải được cung cấp bởi Manager, Staff không thể tự đăng ký tài khoản. Nếu đăng nhập lần
+đầu, hệ thống sẽ yêu cầu tạo một mật khẩu mới để thay mật khẩu được cấp. Staff cũng có thể sử dụng hệ hệ thống dành cho
+nhân viên trong thuộc các quyền hạn được cấp.
 
-|Guest|
+```plantuml
+@startuml
+'| fig-cap: Quy trình sử dụng phần mềm chung
+skinparam activityBackgroundColor BUSINESS
+
 start
-if (Có tài khoản?) then (yes)
-else (no)
-   :Đăng ký tài khoản;
-   :Xác thực OTP;
+if (Có tài khoản?) then (Không)
+  :Đăng ký tài khoản;
+  :Xác thực OTP;
+else (Có)
 endif
 :Đăng nhập;
-if (Quên mật khẩu?) then (yes)
-  :Yêu cầu đặt lại mật khẩu;
+if (Quên mật khẩu?) then (Có)
   :Đặt lại mật khẩu;
-else (no)
+  ->Đăng nhập;
+else (Không)
 endif
-|Guest|
-|System|
-:Hiển thị chức năng tương ứng;
-|#lightskyblue|System|
-|Customer|
-:Sử dụng chức năng tương ứng mà hệ thống cấp;
+:Sử dụng chức năng;
 :Đăng xuất;
 stop
-
-@enduml
-```
-
-#### Phía nhân viên
-
-Guest cần đăng nhập để có thể sử dụng hệ thống. Trong trường hợp quên mật khẩu, Guest có thể gửi yêu cầu đặt lại mật
-khẩu. Nếu đăng nhập lần đầu, hệ thống sẽ yêu cầu Staff tạo một mật khẩu mới để thay mật khẩu được cấp.
-
-Các tài khoản Staff phải được cung cấp bởi Manager, Staff không thể đăng ký tài khoản.
-
-```{.plantuml caption="Quy trình sử dụng phần mềm chung phía người dùng nhân viên"}
-@startuml
-<style>
-activity {
-  BackgroundColor BUSINESS
-}
-swimlaneTittle {
-  BackgroundColor BUSINESS
-}
-</style>
-|Guest|
-start
-:Đăng nhập;
-if (Tài khoản tồn tại?) then (yes)
-else (no)
-stop
-endif
-if (Quên mật khẩu?) then (yes)
-  :Yêu cầu đặt lại mật khẩu;
-  :Đặt lại mật khẩu;
-else (no)
-endif
-|Guest|
-|Staff|
-if (Đăng nhập lần đầu?) then (yes)
-  :Tạo mật khẩu mới;
-else (no)
-endif
-|System|
-:Hiển thị chức năng tương ứng;
-|#lightskyblue|System|
-|Staff|
-:Sử dụng chức năng tương ứng mà hệ thống cấp;
-:Đăng xuất;
-stop
-
 @enduml
 ```
 
