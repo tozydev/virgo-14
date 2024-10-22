@@ -10,6 +10,7 @@ contributors:
   - Đặng Huỳnh Trà My
   - Trần Đặng Mỹ Duyên
 subject: Software Specifications
+date: 22/10/2024
 lang: vi
 fontsize: 12pt
 titlepage: true
@@ -34,7 +35,8 @@ footer-left: "\\hspace{1cm}"
 
 - **Tên dự án:** Hair Salon
 - **Mã dự án:** virgo-14
-- **Phiên bản:** 1.0 draft 1
+- **Phiên bản:** 1.0 draft 2
+- **Ngày hoàn thành:** 22/10/2024
 - **Người soạn:** Nguyễn Thanh Tân
 - **Người đóng góp:**
     - Lê Hoàng Chiến
@@ -189,7 +191,7 @@ rectangle "System" as SS {
 }
 
 F -[hidden]- B
-N2 .r. B
+N2 .l. B
 
 G -d- UC1
 G -d- UC2
@@ -536,4 +538,28 @@ graph TD
     P6 <--> |Thông tin tài chính| DS4
     P6 <--> |Thông tin hiệu năng| DS5
 ```
-## Phụ lục
+
+### Quan hệ các thực thể
+
+```mermaid
+%%| fig-cap: Biểu đồ quan hệ thực thể
+erDiagram
+    customer["Customer"]
+
+    employee["Employee"]
+
+    rating["Rating"]
+
+    service["Service"]
+
+    appointment["Appointment"]
+
+    bill["Bill"]
+
+    customer }o--o| appointment : makes
+    employee }o--|| appointment : serves
+    appointment ||--o{ service  : includes
+    appointment |o--|| rating : has
+    bill }|--|| appointment : ""
+    bill ||--o{ employee : creates
+```
