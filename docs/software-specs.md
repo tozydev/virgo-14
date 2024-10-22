@@ -74,7 +74,7 @@ hoạt động của tiệm.
 |----------------------|----------|----------------------------------------------------------------|
 | Guest                |          | Những người sử dụng hệ thống chưa đăng ký/đăng nhập tài khoản. |
 | Customer             |          | Khách hàng sử dụng dịch vụ của tiệm.                           |
-| Staff                |          | Nhân viên phục của cửa tiệm.                                   |
+| Employee             |          | Nhân viên phục của cửa tiệm.                                   |
 | Manager              |          | Nhân viên quản lý hoặc chủ cửa tiệm.                           |
 | System Administrator |          | Nhân viên giám sát, hỗ trợ kĩ thuật về hạ tầng hệ thống.       |        
 
@@ -82,8 +82,8 @@ hoạt động của tiệm.
 
 ### Các tác nhân
 
-Các tác nhân tương tác với hệ thống gồm: Guest, Customer, Staff, Manager và System Administrator. Các đối tượng đó được
-thể hiện trên sơ đồ sau:
+Các tác nhân tương tác với hệ thống gồm: Guest, Customer, Employee, Manager và System Administrator. Các đối tượng đó
+được thể hiện trên sơ đồ sau:
 
 ```plantuml
 '| fig-cap: Biểu đồ mô hình hóa các tác nhân
@@ -112,11 +112,11 @@ Guest -- UC: visit
 Customer -- UC: use
 
 
-actor Staff
+actor Employee
 actor Manager
-Staff <-right- Manager
+Employee <-right- Manager
 
-Staff -up- UC: manage
+Employee -up- UC: manage
 Manager -up- UC: manage
 
 actor "System Administrator" as AD
@@ -156,7 +156,7 @@ left to right direction
 
 actor Guest as G
 actor Customer as C
-actor Staff as S
+actor Employee as S
 actor Manager as M
 actor "System Administrator" as AD
 
@@ -278,10 +278,10 @@ UC6 <.. UC12 : <<include>>
 @enduml
 ```
 
-#### Phân rã use case “Staff”
+#### Phân rã use case “Employee”
 
 ```plantuml
-'| fig-cap: Biểu đồ use case phân rã của **Staff**
+'| fig-cap: Biểu đồ use case phân rã của **Employee**
 @startuml
 
 skinparam usecase {
@@ -294,7 +294,7 @@ skinparam note {
 
 left to right direction
 
-actor Staff as S
+actor Employee as S
 
 rectangle System {
   usecase "Phản hồi đánh giá" as UC1
@@ -383,9 +383,9 @@ mật khẩu, hệ thống sẽ cho phép cấp lại mật khẩu thông qua em
 Sau khi đăng nhập thành công vào hệ thống, Customer có thể sử dụng các chức năng như Quản lý thông tin, Quản lý đặt lịch
 hẹn, và các chức năng trong phạm vi của mình mà hệ thống đã cấp phát.
 
-Đối với Staff, các tài khoản phải được cung cấp bởi Manager, Staff không thể tự đăng ký tài khoản. Nếu đăng nhập lần
-đầu, hệ thống sẽ yêu cầu tạo một mật khẩu mới để thay mật khẩu được cấp. Staff cũng có thể sử dụng hệ hệ thống dành cho
-nhân viên trong thuộc các quyền hạn được cấp.
+Đối với Employee, các tài khoản phải được cung cấp bởi Manager, Employee không thể tự đăng ký tài khoản. Nếu đăng nhập
+lần đầu, hệ thống sẽ yêu cầu tạo một mật khẩu mới để thay mật khẩu được cấp. Employee cũng có thể sử dụng hệ hệ thống
+dành cho nhân viên trong thuộc các quyền hạn được cấp.
 
 ```plantuml
 @startuml
@@ -498,7 +498,7 @@ package Backend as B {
     HTTP -r- C
     C ..> BS
     BS ..> DA
-    DA .r.> DB : access
+    DA .l.> DB : access
 }
 
 @enduml
@@ -517,7 +517,7 @@ graph TD
     A[Customer] --> |Đặt lịch| P1((Hệ Thống Lịch Hẹn))
     A --> |Xem dịch vụ| P2((Hệ Thống Dịch Vụ))
     A --> |Đánh giá dịch vụ| P3((Hệ Thống Đánh Giá))
-    C[Staff] --> |Quản lý lịch hẹn| P1
+    C[Employee] --> |Quản lý lịch hẹn| P1
     C --> |Tạo hóa đơn| P4((Hệ Thống Hóa Đơn))
     D[Manager] --> |Quản lý dịch vụ| P2
     D --> |Quản lý nhân viên| P5((Hệ Thống Nhân Viên))
@@ -526,7 +526,7 @@ graph TD
     P2 <--> |Dữ liệu dịch vụ| DS2[(Service DB)]
     P3 <--> |Dữ liệu đánh giá| DS3[(Rating DB)]
     P4 <--> |Dữ liệu hóa đơn| DS4[(Invoice DB)]
-    P5 <--> |Dữ liệu nhân viên| DS5[(Staff DB)]
+    P5 <--> |Dữ liệu nhân viên| DS5[(Employee DB)]
     P6 --> |Tạo báo cáo| D
     P4 <--> |Tiến hành thanh toán| E[Cổng thanh toán]
     P1 --> |Xác nhận lịch hẹn| A
