@@ -35,7 +35,7 @@ footer-left: "\\hspace{1cm}"
 
 - **Tên dự án:** Hair Salon
 - **Mã dự án:** virgo-14
-- **Phiên bản:** 1.0 draft 2
+- **Phiên bản:** 1.0
 - **Ngày hoàn thành:** 22/10/2024
 - **Người soạn:** Nguyễn Thanh Tân
 - **Người đóng góp:**
