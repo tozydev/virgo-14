@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace App.Controllers;
+namespace Virgo14.Backend.App.Controllers;
 
 [ApiController]
 [Route("[controller]")]

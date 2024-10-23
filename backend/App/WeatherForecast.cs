@@ -1,4 +1,4 @@
-namespace App;
+namespace Virgo14.Backend.App;
 
 public class WeatherForecast
 {
