@@ -8,6 +8,7 @@
         <LangVersion>default</LangVersion>
         <Company>virgo-14</Company>
         <Product>Virgo 14 Backend</Product>
+        <RootNamespace>Virgo14.Backend.App</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
@@ -18,6 +19,10 @@
       <Content Include="..\.dockerignore">
         <Link>.dockerignore</Link>
       </Content>
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Services\Services.csproj" />
     </ItemGroup>
 
 </Project>
