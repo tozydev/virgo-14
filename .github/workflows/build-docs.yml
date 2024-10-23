@@ -1,0 +1,62 @@
+name: Build documents
+on:
+  push:
+    paths:
+      - docs/**
+      - .github/workflows/build-docs.yml
+      - .github/actions/pandoc/**
+
+    branches:
+      - main
+
+  pull_request:
+    paths:
+      - docs/**
+      - .github/workflows/build-docs.yml
+      - .github/actions/pandoc/**
+
+jobs:
+  build-software-specs:
+    runs-on: ubuntu-latest
+    container:
+      image: pandoc/extra:latest
+
+    env:
+      MERMAID_BIN: /usr/local/bin/mmdc-alt
+      PUPPETEER_EXECUTABLE_PATH: /usr/bin/chromium-browser
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup dependencies
+        run: |
+          apk update
+          apk add plantuml chromium font-noto-cjk font-noto-emoji \
+            terminus-font ttf-dejavu ttf-freefont ttf-font-awesome \
+            ttf-inconsolata ttf-linux-libertine npm
+          fc-cache -f
+          npm install -g @mermaid-js/mermaid-cli
+          printf '{"args":["--no-sandbox","--disable-setuid-sandbox", "--disable-gpu"]}' > \
+                  /etc/puppeteer-conf.json
+          printf '#!/bin/sh\nmmdc -p /etc/puppeteer-conf.json $@' > $MERMAID_BIN
+          chmod +x $MERMAID_BIN
+          cp -r ./.github/pandoc/* ./docs/
+
+      - name: Build PDF
+        working-directory: ./docs
+        run: pandoc -d software-specs.yml
+
+      - name: Upload PDF
+        uses: actions/upload-artifact@v4
+        with:
+          name: software-specs
+          path: docs/software-specs.pdf
+
+      - name: Commit software-specs
+        if: github.event_name == 'push'
+        uses: EndBug/add-and-commit@v9
+        with:
+          add: docs/
+          default_author: github_actions
+          messages: 'docs(auto): update software-specs.pdf'

@@ -1,0 +1,23 @@
+### General options
+input-file: software-specs.md
+output-file: software-specs.pdf
+from: markdown
+to: pdf
+### Reader options
+shift-heading-level-by: -1
+filters:
+  - lua-filters/diagram.lua
+### Writer options
+template: templates/eisvogel.tex
+pdf-engine: xelatex
+metadata:
+  diagram:
+    engine:
+      plantuml:
+        mime-type:
+          application/pdf: false
+          image/svg+xml: true
+
+      mermaid:
+        mine-type:
+          image/svg+xml: true
